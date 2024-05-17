@@ -1,2 +1,11 @@
 # todo-list
-Todo
+
+# Features
+
+* save your local-storage
+* autosave
+* can check.
+
+# Usage
+
+* open Github Pages.
