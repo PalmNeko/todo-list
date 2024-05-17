@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "css-build": "sh scripts/tailwind-build.sh",
+    "css-watch": "sh scripts/tailwind-build.sh --watch",
+    "tsc-build": "tsc",
+    "tsc-watch": "tsc -w"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
+  }
+}
