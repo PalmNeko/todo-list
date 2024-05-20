@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.root": "/docs"
+		"liveServer.settings.root": "/docs",
+		"editor.formatOnSave": true
 	}
 }
