@@ -8,6 +8,7 @@ export class TodoElement {
     }
 
     render(): HTMLElement {
-        return document.createElement('div');
+        const element = document.createElement('div');
+        return element;
     }
 }

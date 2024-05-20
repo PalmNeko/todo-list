@@ -6,6 +6,11 @@
 	],
 	"settings": {
 		"liveServer.settings.root": "/docs",
-		"editor.formatOnSave": true
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "always",
+			"source.fixAll": "always",
+			"source.addMissingImports": "always"
+		}
 	}
 }

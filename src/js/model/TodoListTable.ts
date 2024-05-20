@@ -1,8 +1,10 @@
 import { TodoData } from "./TodoData";
 
 
-export class TodoTable {
+export class TodoListTable {
+    namespace: string;
     constructor(namespace: string) {
+        this.namespace = namespace;
         // 名前空間の下のlocalStorageに保存する。
     }
 
