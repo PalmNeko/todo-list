@@ -1,5 +1,5 @@
 
-import { expect, jest, test } from '@jest/globals'
+import { expect, test } from '@jest/globals';
 import { TodoListTable } from './TodoListTable';
 
 // jest.mock('localStorage')
