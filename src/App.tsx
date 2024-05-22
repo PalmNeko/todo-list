@@ -1,10 +1,9 @@
-import './App.css'
-import './test.css'
+import './style.css'
 function App() {
   return (
-    <>
-      <div className="flex flex-col" id="todo-list"></div>
-    </>
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
   )
 }
 
