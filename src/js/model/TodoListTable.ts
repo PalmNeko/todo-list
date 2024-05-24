@@ -1,4 +1,4 @@
-import { TodoData } from "./TodoData";
+import { TodoDataFormat } from "./TodoData";
 
 
 export class TodoListTable {
@@ -8,11 +8,16 @@ export class TodoListTable {
         // 名前空間の下のlocalStorageに保存する。
     }
 
-    save(todolist: Array<TodoData>) {
-
+    save(todolist: Array<TodoDataFormat>) {
+        const jsonData = JSON.stringify(todolist);
+        localStorage.setItem(this.namespace, jsonData);
+        return;
     }
 
-    load(): Array<TodoData> {
-        return new Array<TodoData>();
+    load(): Array<TodoDataFormat> {
+        const jsonData = localStorage.getItem(this.namespace);
+        if (jsonData == null)
+            return [];
+        return JSON.parse(jsonData);
     }
 }
