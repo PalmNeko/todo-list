@@ -1,4 +1,5 @@
 
+import { TodoListTable } from '../model/TodoListTable';
 import TodoList from './TodoList';
 
 function TodoApp() {
@@ -6,10 +7,11 @@ function TodoApp() {
         { title: '勉強' },
         { title: 'スポーツ' }
     ];
+    const table = new TodoListTable('todo-list');
+    const todo = table.load();
     return (
         <div>
-            <TodoList title="TodoListのタイトル" todolist={todolist}>
-            </TodoList>
+            <TodoList title="TodoListのタイトル" todolist={todo} />
         </div>
     )
 }
