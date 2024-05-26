@@ -10,8 +10,12 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
     return (
         <div>
             <Card>
-                <input type="text" value={todo.title} onChange={updateTitle} />
-                <button onClick={deleteTodo}>削除</button>
+                <input className="bg-inherit"
+                    type="text" value={todo.title} onChange={updateTitle} />
+                <button className="text-right"
+                    onClick={deleteTodo}>
+                    削除
+                </button>
             </Card>
         </div>
     )
