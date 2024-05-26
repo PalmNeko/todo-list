@@ -11,13 +11,13 @@ export const parameters: ParameterType = {
         TodoData: {
             onCreate: {
                 tagName: 'div',
-                classes: []
+                classNames: []
             }
         },
         TodoList: {
             onCreate: {
                 tagName: 'div',
-                classes: []
+                classNames: []
             }
         }
     }
@@ -26,6 +26,6 @@ export const parameters: ParameterType = {
 type HTMLElementConfigType = {
     onCreate: {
         tagName?: keyof HTMLElementTagNameMap,
-        classes?: string[];
+        classNames?: string[];
     };
 };

@@ -5,12 +5,19 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.root": "/docs",
+		"liveServer.settings.root": "/dist",
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.organizeImports": "always",
 			"source.fixAll": "always",
 			"source.addMissingImports": "always"
 		}
+	},
+	"extensions": {
+		"recommendations": [
+			"dbaeumer.vscode-eslint",
+			"streetsidesoftware.code-spell-checker",
+			"ritwickdey.liveserver"
+		]
 	}
 }
