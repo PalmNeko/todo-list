@@ -12,5 +12,12 @@
 			"source.fixAll": "always",
 			"source.addMissingImports": "always"
 		}
+	},
+	"extensions": {
+		"recommendations": [
+			"dbaeumer.vscode-eslint",
+			"streetsidesoftware.code-spell-checker",
+			"ritwickdey.liveserver"
+		]
 	}
 }
