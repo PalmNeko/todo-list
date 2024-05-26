@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TodoDataFormat } from "../model/TodoData";
-import AddButton from "./AddButton";
 import TodoListView from "./TodoListViewer";
 
 
@@ -9,6 +8,9 @@ export default function TodoList({ title, todolist }: {
     todolist: TodoDataFormat[]
 }) {
     const [todo, setTodo] = useState(todolist);
+    const appendEmptyTodo = () => {
+        setTodo([...todo, {}]);
+    }
     return (
         <div className="bg-red-100">
             <h1>{title}</h1>
@@ -18,7 +20,7 @@ export default function TodoList({ title, todolist }: {
             />
             <div>
                 <div className="w-fit mx-auto">
-                    <AddButton />
+                    <button className="bg-gray-100" onClick={appendEmptyTodo}>＋</button>
                 </div>
             </div>
 
