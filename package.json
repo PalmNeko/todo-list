@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig-exclude-test.json && vite build",
+    "build-gh-pages": "tsc -p tsconfig-exclude-test.json && vite build --config ./vite-gh-pages.config.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "css-build": "sh scripts/tailwind-build.sh",
