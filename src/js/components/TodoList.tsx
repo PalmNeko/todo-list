@@ -13,7 +13,7 @@ export default function TodoList({ title, todolist, saveTodo }: {
     const appendEmptyTodo = () => {
         setTodo([...todo, {}]);
     }
-    useEffect(() => saveTodo(todo), [todo]);
+    useEffect(() => saveTodo(todo), [saveTodo, todo]);
     return (
         <div className="bg-red-100">
             <h1>{title}</h1>
