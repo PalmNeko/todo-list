@@ -16,7 +16,7 @@ export default function TodoListView({ todolist, setTodo }: {
         newTodo.splice(index, 1);
         setTodo(newTodo);
     }
-    return <div>
+    return <div className="todo-list-view">
         {
             todolist.map((todo, index) => {
                 return (

@@ -4,10 +4,8 @@ import './style.css';
 function App() {
   return (
     <div>
-      <div className="grid grid-cols-3">
-        <div ><p>left side bar</p></div>
+      <div className="mx-auto">
         <TodoApp></TodoApp>
-        <div><p>right side bar</p></div>
       </div>
     </div>
   )

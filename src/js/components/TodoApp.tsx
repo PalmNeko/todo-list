@@ -1,5 +1,6 @@
 
 import { TodoListTable } from '../model/TodoListTable';
+import "./Component.css";
 import TodoList from './TodoList';
 
 function TodoApp() {
@@ -7,7 +8,7 @@ function TodoApp() {
     const todo = table.load();
     const saveTodo = table.save.bind(table)
     return (
-        <div>
+        <div className='todo-app'>
             <TodoList title="TodoListのタイトル" todolist={todo} saveTodo={saveTodo} />
         </div>
     )

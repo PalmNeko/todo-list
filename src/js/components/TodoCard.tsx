@@ -8,14 +8,16 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
     deleteTodo: () => void
 }) {
     return (
-        <div>
+        <div className="todo-card-container">
             <Card>
-                <input className="bg-inherit"
-                    type="text" value={todo.title} onChange={updateTitle} />
-                <button className="text-right"
-                    onClick={deleteTodo}>
-                    削除
-                </button>
+                <div className="todo-card-content">
+                    <input className="todo-title"
+                        type="text" value={todo.title} onChange={updateTitle} />
+                    <button className="todo-delete-button"
+                        onClick={deleteTodo}>
+                        削除
+                    </button>
+                </div>
             </Card>
         </div>
     )

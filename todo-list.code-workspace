@@ -17,7 +17,8 @@
 		"recommendations": [
 			"dbaeumer.vscode-eslint",
 			"streetsidesoftware.code-spell-checker",
-			"ritwickdey.liveserver"
+			"ritwickdey.liveserver",
+			"bradlc.vscode-tailwindcss"
 		]
 	}
 }

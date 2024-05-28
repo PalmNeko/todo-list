@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { TodoDataFormat } from "../model/TodoData";
 import { TodoListTable } from "../model/TodoListTable";
+import './Component.css';
 import TodoListView from "./TodoListViewer";
 
 
@@ -15,15 +16,15 @@ export default function TodoList({ title, todolist, saveTodo }: {
     }
     useEffect(() => saveTodo(todo), [saveTodo, todo]);
     return (
-        <div className="bg-red-100">
+        <div className="todo-list">
             <h1>{title}</h1>
             <TodoListView
                 todolist={todo}
                 setTodo={(todo: TodoDataFormat[]) => setTodo(todo)}
             />
             <div>
-                <div className="w-fit mx-auto">
-                    <button className="bg-gray-100" onClick={appendEmptyTodo}>＋</button>
+                <div>
+                    <button className="todo-add-button" onClick={appendEmptyTodo}>＋</button>
                 </div>
             </div>
 

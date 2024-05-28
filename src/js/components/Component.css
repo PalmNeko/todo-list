@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.todo-app {
+    @apply w-full;
+    @apply sm:mx-auto;
+    @apply xl:w-1/3;
+}
+
+.todo-list {
+    @apply bg-red-100;
+    @apply mx-auto text-center;
+}
+
+.todo-list-view {
+    @apply mx-auto;
+}
+
+
+.todo-card-container {}
+
+.todo-card-content {
+    @apply grid grid-cols-10;
+    @apply mx-auto w-full;
+}
+
+.todo-title {
+    @apply col-span-9 bg-inherit;
+}
+
+.todo-delete-button {
+    @apply col-span-1;
+    @apply bg-red-50;
+    @apply font-medium
+    /* @apply w-fit; */
+}
+
+.todo-add-button {
+    @apply bg-cyan-300 rounded-full w-10 h-10 text-lg font-bold;
+    @apply inline-block;
+}
