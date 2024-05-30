@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { KeyboardEventHandler, useRef } from "react";
 import { TodoDataFormat } from "../model/TodoData";
 import { Card } from "./Card";
 
@@ -12,8 +12,12 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
     const focusInputField = () => {
         inputRef?.current?.focus();
     }
+    const onKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
+        if (event.code == "Delete")
+            deleteTodo();
+    }
     return (
-        <div className="todo-card-container" onClick={focusInputField}>
+        <div className="todo-card-container" onClick={focusInputField} onKeyDown={onKeyDown}>
             <Card>
                 <div className="todo-card-content">
                     <input className="todo-title" ref={inputRef}
