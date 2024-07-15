@@ -77,7 +77,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTod
                         type="text" value={todo.title || ''} onChange={updateTitle} />
                     <button className="todo-delete-button"
                         ref={deleteButtonRef}
-                        onKeyDown={handleDeleteButtonKeydown}
+                        onKeyDownCapture={handleDeleteButtonKeydown}
                         onClickCapture={() => deleteTodo()}>
                         削除
                     </button>
