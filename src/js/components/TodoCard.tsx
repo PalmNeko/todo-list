@@ -16,9 +16,6 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
     const focusNextTodo = () => {
         const nextTodo = todoRef?.current?.nextElementSibling;
         if (!nextTodo) {
-            const firstChild = todoRef?.current?.parentNode?.firstElementChild;
-            if (firstChild instanceof HTMLElement)
-                firstChild.click();
             return;
         }
         if (nextTodo instanceof HTMLElement)
@@ -27,9 +24,9 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
     const focusPreviousTodo = () => {
         const previousTodo = todoRef?.current?.previousElementSibling;
         if (!previousTodo) {
-            const lastChild = todoRef?.current?.parentNode?.lastElementChild;
-            if (lastChild instanceof HTMLElement)
-                lastChild.click();
+            const firstChild = todoRef?.current?.parentNode?.firstElementChild;
+            if (firstChild instanceof HTMLElement)
+                firstChild.click();
             return;
         }
         if (previousTodo instanceof HTMLElement)
@@ -42,12 +39,16 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
             else
                 focusNextTodo();
         }
-        if (event.code == "Delete")
+        if (event.code == "Delete") {
+            focusPreviousTodo();
             deleteTodo();
+        }
     }
     const handleDeleteButtonKeydown = (event: React.KeyboardEvent) => {
-        if (event.key == 'Enter')
+        if (event.key == 'Enter') {
+            focusPreviousTodo();
             deleteTodo();
+        }
     }
     return (
         <div className="todo-card-container" onClick={focusInputField} ref={todoRef} onKeyDownCapture={(event) => handleKeyDown(event)}>
