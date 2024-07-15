@@ -54,7 +54,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
             <Card>
                 <div className="todo-card-content">
                     <input className="todo-title" ref={inputRef}
-                        type="text" value={todo.title} onChange={updateTitle} />
+                        type="text" value={todo.title || ''} onChange={updateTitle} />
                     <button className="todo-delete-button"
                         onKeyDown={handleDeleteButtonKeydown}
                         onClickCapture={() => deleteTodo()}>
