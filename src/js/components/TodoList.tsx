@@ -29,10 +29,10 @@ export default function TodoList({ title, todolist, saveTodo }: {
             />
             <div>
                 <div>
-                    <button className="todo-add-button" onClick={appendEmptyTodo}>＋</button>
+                    <button className="todo-add-button" onClick={(e) => { e.stopPropagation(); appendEmptyTodo(); }} onKeyDown={e => e.stopPropagation()}>＋</button>
                 </div>
             </div>
 
-        </div>
+        </div >
     );
 }
