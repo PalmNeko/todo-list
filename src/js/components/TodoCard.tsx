@@ -66,7 +66,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTod
             runDeleteButton();
     }
     const handleDeleteButtonKeydown = (event: React.KeyboardEvent) => {
-        if (event.key == 'Enter') {
+        if (['Enter', 'Space'].includes(event.key)) {
             runDeleteButton();
         }
     }
