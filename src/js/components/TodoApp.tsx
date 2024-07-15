@@ -9,7 +9,7 @@ function TodoApp() {
     const saveTodo = table.save.bind(table)
     return (
         <div className='todo-app'>
-            <TodoList title="TodoListのタイトル" todolist={todo} saveTodo={saveTodo} />
+            <TodoList title="TodoList" todolist={todo} saveTodo={saveTodo} />
         </div>
     )
 }
