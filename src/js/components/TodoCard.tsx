@@ -9,6 +9,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
     deleteTodo: () => void
 }) {
     const inputRef = useRef<HTMLInputElement>(null);
+    const deleteButtonRef = useRef<HTMLButtonElement>(null);
     const todoRef = useRef<HTMLDivElement>(null);
     const focusInputField = () => {
         inputRef?.current?.focus();
@@ -32,6 +33,12 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
         if (previousTodo instanceof HTMLElement)
             previousTodo.click();
     }
+    const focusInputButton = () => {
+        inputRef?.current?.focus();
+    }
+    const focusDeleteButton = () => {
+        deleteButtonRef?.current?.focus();
+    }
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key == 'Enter') {
             if (event.shiftKey)
@@ -39,6 +46,14 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
             else
                 focusNextTodo();
         }
+        if (event.key == 'ArrowDown')
+            focusNextTodo();
+        else if (event.key == 'ArrowUp')
+            focusPreviousTodo();
+        else if (event.key == 'ArrowRight')
+            focusDeleteButton();
+        else if (event.key == 'ArrowLeft')
+            focusInputButton();
         if (event.code == "Delete") {
             focusPreviousTodo();
             deleteTodo();
@@ -57,6 +72,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
                     <input className="todo-title" ref={inputRef}
                         type="text" value={todo.title || ''} onChange={updateTitle} />
                     <button className="todo-delete-button"
+                        ref={deleteButtonRef}
                         onKeyDown={handleDeleteButtonKeydown}
                         onClickCapture={() => deleteTodo()}>
                         削除
