@@ -2,9 +2,10 @@ import { TodoDataFormat } from "../model/TodoData";
 import TodoCard from "./TodoCard";
 
 
-export default function TodoListView({ todolist, setTodo }: {
+export default function TodoListView({ todolist, setTodo, appendEmptyTodo }: {
     todolist: TodoDataFormat[],
-    setTodo: (todo: TodoDataFormat[]) => void
+    setTodo: (todo: TodoDataFormat[]) => void,
+    appendEmptyTodo: () => void,
 }) {
     const setTitle = (index: number, title: string) => {
         const newTodo = [...todolist];
@@ -25,6 +26,7 @@ export default function TodoListView({ todolist, setTodo }: {
                         todo={todo}
                         updateTitle={(e) => setTitle(index, e.target.value)}
                         deleteTodo={() => deleteTodo(index)}
+                        appendEmptyTodo={appendEmptyTodo}
                     />
                 )
             })

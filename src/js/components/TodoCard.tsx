@@ -3,10 +3,11 @@ import { TodoDataFormat } from "../model/TodoData";
 import { Card } from "./Card";
 
 
-export default function TodoCard({ todo, updateTitle, deleteTodo }: {
+export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTodo }: {
     todo: TodoDataFormat,
     updateTitle: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    deleteTodo: () => void
+    deleteTodo: () => void,
+    appendEmptyTodo: () => void,
 }) {
     const inputRef = useRef<HTMLInputElement>(null);
     const deleteButtonRef = useRef<HTMLButtonElement>(null);
@@ -17,7 +18,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
     const focusNextTodo = () => {
         const nextTodo = todoRef?.current?.nextElementSibling;
         if (!nextTodo) {
-            return;
+            return false;
         }
         if (nextTodo instanceof HTMLElement)
             nextTodo.click();
@@ -44,7 +45,10 @@ export default function TodoCard({ todo, updateTitle, deleteTodo }: {
             if (event.shiftKey)
                 focusPreviousTodo();
             else
-                focusNextTodo();
+                if (focusNextTodo() == false) {
+                    appendEmptyTodo();
+                    setTimeout(focusNextTodo, 0);
+                }
         }
         if (event.key == 'ArrowDown')
             focusNextTodo();
