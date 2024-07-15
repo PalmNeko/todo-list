@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TodoDataFormat } from "../model/TodoData";
 import { TodoListTable } from "../model/TodoListTable";
 import './Component.css';
@@ -14,13 +14,12 @@ export default function TodoList({ title, todolist, saveTodo }: {
     const appendEmptyTodo = () => {
         setTodo([...todo, {}]);
     }
-    useEffect(() => saveTodo(todo), [saveTodo, todo]);
     return (
         <div className="todo-list">
             <h1>{title}</h1>
             <TodoListView
                 todolist={todo}
-                setTodo={(todo: TodoDataFormat[]) => setTodo(todo)}
+                setTodo={(todo: TodoDataFormat[]) => { setTodo(todo); saveTodo(todo); }}
             />
             <div>
                 <div>
