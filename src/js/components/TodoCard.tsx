@@ -45,6 +45,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTod
         deleteTodo();
     }
     const handleKeyDown = (event: React.KeyboardEvent) => {
+        event.stopPropagation();
         if (event.key == 'Enter') {
             if (event.shiftKey)
                 focusPreviousTodo();
@@ -66,20 +67,21 @@ export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTod
             runDeleteButton();
     }
     const handleDeleteButtonKeydown = (event: React.KeyboardEvent) => {
+        event.stopPropagation();
         if (['Enter', 'Space'].includes(event.key)) {
             runDeleteButton();
         }
     }
     return (
-        <div className="todo-card-container" onClick={focusInputField} ref={todoRef} onKeyDownCapture={(event) => handleKeyDown(event)}>
+        <div className="todo-card-container" onClick={focusInputField} ref={todoRef} onKeyDown={(event) => handleKeyDown(event)}>
             <Card>
                 <div className="todo-card-content">
                     <input className="todo-title" ref={inputRef}
                         type="text" value={todo.title || ''} onChange={updateTitle} />
                     <button className="todo-delete-button"
                         ref={deleteButtonRef}
-                        onKeyDownCapture={handleDeleteButtonKeydown}
-                        onClickCapture={() => runDeleteButton()}>
+                        onKeyDown={handleDeleteButtonKeydown}
+                        onClick={() => runDeleteButton()}>
                         削除
                     </button>
                 </div>
