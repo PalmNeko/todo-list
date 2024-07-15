@@ -14,9 +14,13 @@ export default function TodoList({ title, todolist, saveTodo }: {
     const appendEmptyTodo = () => {
         setTodo([...todo, {}]);
     }
+    const handleTodoListKeyDown = (event: React.KeyboardEvent) => {
+        if (event.key == 'Enter')
+            appendEmptyTodo();
+    }
     useEffect(() => saveTodo(todo), [saveTodo, todo]);
     return (
-        <div className="todo-list">
+        <div className="todo-list" tabIndex={0} onKeyDown={handleTodoListKeyDown}>
             <h1>{title}</h1>
             <TodoListView
                 todolist={todo}
