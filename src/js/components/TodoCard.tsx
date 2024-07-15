@@ -40,6 +40,10 @@ export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTod
     const focusDeleteButton = () => {
         deleteButtonRef?.current?.focus();
     }
+    const runDeleteButton = () => {
+        focusPreviousTodo();
+        deleteTodo();
+    }
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key == 'Enter') {
             if (event.shiftKey)
@@ -58,15 +62,12 @@ export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTod
             focusDeleteButton();
         else if (event.key == 'ArrowLeft')
             focusInputButton();
-        if (event.code == "Delete") {
-            focusPreviousTodo();
-            deleteTodo();
-        }
+        if (event.code == "Delete")
+            runDeleteButton();
     }
     const handleDeleteButtonKeydown = (event: React.KeyboardEvent) => {
         if (event.key == 'Enter') {
-            focusPreviousTodo();
-            deleteTodo();
+            runDeleteButton();
         }
     }
     return (
@@ -78,7 +79,7 @@ export default function TodoCard({ todo, updateTitle, deleteTodo, appendEmptyTod
                     <button className="todo-delete-button"
                         ref={deleteButtonRef}
                         onKeyDownCapture={handleDeleteButtonKeydown}
-                        onClickCapture={() => deleteTodo()}>
+                        onClickCapture={() => runDeleteButton()}>
                         削除
                     </button>
                 </div>
